@@ -1,6 +1,6 @@
 # Reference
 ## `POST /v2/invoices/{invoice_id}/send`   
-Sends a finalized invoice to a specified email. The rate limit is 10 requests per minute.
+Sends a finalized invoice to a specified email address. The rate limit is 10 requests per minute.
 
 Uses Bearer token authentication and JSON. 
 
@@ -17,8 +17,8 @@ Uses Bearer token authentication and JSON.
 
 | Name | Type | Required | Description |
 |--------------|:-------------:|:---------------:|---------|
-| `recipient_email` | string  | yes | The email address the invoice is sent to. Should not contain more than 500 characters. |
-| `message` | string | no | The message sent in the email. |
+| `recipient_email` | string  | yes | The email address the invoice is sent to.  |
+| `message` | string | no | The message sent in the email. Should not contain more than 500 characters.|
 | `send_copy_to_self` | boolean | TBD | TBD |
  
 #### Example request  
@@ -41,14 +41,14 @@ Content-Type: application/json
 | Name | Possible values | Description |
 |--------------|:-------------:|:---------------:|
 | `status` | TBD  | The status of the request. |
-| `invoice_id` | number | The ID of the requested invoice. |
+| `invoice_id` | string | The ID of the requested invoice. |
 | `sent_at` | date & time | TBD |
 | `delivery_id` | number | TBD |
  
 #### Example response  
 
 
-```HTML
+```http
 {
   "status": "queued",
   "invoice_id": "inv_8f3a",
