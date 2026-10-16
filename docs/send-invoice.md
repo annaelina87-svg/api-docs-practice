@@ -1,31 +1,29 @@
-<h1>Reference</h1>
-<h3>POST/v2/invoices/{invoice_id}/send</h3>  
-<body> Sends a finalized invoice to a specified email. Safe to retry. The rate limit is 10 requests per minute.
+# Reference
+## `POST /v2/invoices/{invoice_id}/send`   
+Sends a finalized invoice to a specified email. The rate limit is 10 requests per minute.
 
-Uses Bearer token authentication and JSON. </body>
+Uses Bearer token authentication and JSON. 
 
- <h4>Path parameters</h4>
+ ### Path parameters 
 
 
-| Name | Type | Is required? | Description |
+| Name | Type | Required | Description |
 |--------------|:-------------:|:---------------:|---------|
-| invoice_id | string  | yes | The ID of the invoice. |
+| `invoice_id` | string  | yes | The ID of the invoice. |
 
 
-<h4>Request parameters</h4>
+### Request parameters 
 
 
-| Name | Type | Is required? | Description |
+| Name | Type | Required | Description |
 |--------------|:-------------:|:---------------:|---------|
-| recepient_email | string  | yes | An email used for sending the invoice. |
-| message | string | no | A message sent in the email. |
-| send_copy_to_self | boolean | TBD | TBD |
+| `recipient_email` | string  | yes | The email address the invoice is sent to. Should not contain more than 500 characters. |
+| `message` | string | no | The message sent in the email. |
+| `send_copy_to_self` | boolean | TBD | TBD |
  
-<h5> Example request </h5> 
+#### Example request  
 
-
-
-```js
+```json
 POST /v2/invoices/{invoice_id}/send
 Authorization: Bearer <token>
 Content-Type: application/json
@@ -36,21 +34,21 @@ Content-Type: application/json
   "send_copy_to_self": true
 }
 ```
-<h4> Response fields</h4>
+
+### Response fields 
 
 
 | Name | Possible values | Description |
 |--------------|:-------------:|:---------------:|
-| status | TBD  | A status of the request. |
-| invoice_id | number | ID of the requested invoice. |
-| sent_at | date & time | TBD |
-| delivery_id | number | TBD |
+| `status` | TBD  | The status of the request. |
+| `invoice_id` | number | The ID of the requested invoice. |
+| `sent_at` | date & time | TBD |
+| `delivery_id` | number | TBD |
  
-<h5> Example response </h5> 
+#### Example response  
 
 
-
-```js
+```HTML
 {
   "status": "queued",
   "invoice_id": "inv_8f3a",
@@ -59,7 +57,7 @@ Content-Type: application/json
 }
 ```
 
-<h4> Response codes </h4>
+### Response codes 
 
 | Code |  Description |
 |:-------------:|:---------------:|
