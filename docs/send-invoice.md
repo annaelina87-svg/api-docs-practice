@@ -57,7 +57,8 @@ Content-Type: application/json
   "sent_at": "2026-03-14T09:30:00Z",
   "delivery_id": 48213
 }
-``` 409
+```
+
 <h4> Response codes </h4>
 
 | Code |  Description |
